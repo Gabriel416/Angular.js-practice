@@ -1,0 +1,46 @@
+<div class="row details-master">
+    <div class="col-xs-12 col-sm-6">
+        <div class="movie-details-left-wrapper">
+            <img src="https://image.tmdb.org/t/p/w500{{selectedMovie.poster_path}}" alt="movie poster for {{selectedMovie.title}}">
+            <div class="release-date-box hidden-xs">
+                <span class="release-day">{{formatDate(selectedMovie.release_date).day}}</span>
+                <br>
+                <span class="release-year">{{formatDate(selectedMovie.release_date).month}} {{formatDate(selectedMovie.release_date).year}}</span>
+            </div>
+            <a class="preview-button" target="_blank" ng-show="{{selectedMovie.videos.results}}" href="https://www.youtube.com/watch?v={{selectedMovie.videos.results[0].key}}">
+                <i class="fas fa-play"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <div class="movie-details-wrapper">
+            <h1>{{selectedMovie.title}}</h1>
+            <h5>{{selectedMovie.tagline}}</h5>
+            <p style="color: #878A9F;">{{selectedMovie.original_language}} / {{formatDate(selectedMovie.release_date).year}} / {{selectedMovie.runtime}}mins</p>
+            <div class="rating-section">
+                <p>
+                    Rating: {{selectedMovie.vote_average}}/10
+                </p>
+                <p>
+                    Budget: {{selectedMovie.budget| currency}}
+                </p>
+                <div class="genre-wrapper">
+                    Genres:
+                    <span ng-repeat="genre in selectedMovie.genres">{{genre.name}}</span>
+                </div>
+            </div>
+            <div class="movie-description">
+                <h3>SYNOPSIS</h3>
+                <p style="color: #878A9F;">{{selectedMovie.overview}}</p>
+            </div>
+            <div class="movie-cast">
+                <h3>THE CAST</h3>
+                <div class="image-wrapper">
+                    <img ng-repeat="i in [0,1,2,3,4,5]" ng-show="{{selectedMovie.credits.cast[i].profile_path}}" class="cast-image" src="https://image.tmdb.org/t/p/w500/{{selectedMovie.credits.cast[i].profile_path}}"
+                        alt="picture of movie crew">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

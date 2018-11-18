@@ -1,0 +1,14 @@
+<div class="movie-preview-wrapper">
+    <img ng-if="moviePoster" class="movie-preview-poster" src="https://image.tmdb.org/t/p/w500{{moviePoster}}" alt="movie poster for {{movieTitle}}">
+    <div ng-if="!moviePoster" style="height: 450px; width: 100%; color: white; background: gray; display: flex; align-items: center; justify-content: center;">
+        No movie poster found
+    </div>
+    <div class="movie-preview-text">
+        <p class="movie-title">
+            {{movieTitle}}
+        </p>
+        <p class="movie-date">
+            ({{formatDate({date: releaseDate})}})
+        </p>
+    </div>
+</div>
