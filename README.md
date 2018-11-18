@@ -1,6 +1,5 @@
 # Angular.js-practice
 
-Learning the basics of Angular.js
 
 ### SPA using the TMDb
 
